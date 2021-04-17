@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: vpkg-registry
-        image: woog-life/vpkg-registry:{{TAG}}
+        image: ghcr.io/woog-life/vpkg-registry:{{TAG}}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
