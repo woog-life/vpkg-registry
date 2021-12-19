@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v1
       - name: update tag in manifest.yml
         run: sed -i -e "s#__TAG__#${GITHUB_SHA}#g" values.yaml
-      - name: install helm chart
+      - name: lint
         uses: WyriHaximus/github-action-helm3@v2
         with:
           exec: helm lint
-      - name: install helm chart
+      - name: lint strict
         uses: WyriHaximus/github-action-helm3@v2
         with:
           exec: helm lint --strict
@@ -32,7 +32,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-        run: docker build -t ghcr.io/woog-life/vpkg-registry:${GITHUB_SHA} .
+      - run: docker build -t ghcr.io/woog-life/vpkg-registry:${GITHUB_SHA} .
       - name: Push the tagged Docker image
         run: docker push ghcr.io/woog-life/vpkg-registry:${GITHUB_SHA}
 
