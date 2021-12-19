@@ -1,0 +1,28 @@
+namespace: wooglife
+
+deployment:
+  name: vpkg-registry
+  image: ghcr.io/ghcr.io/woog-life/vpkg-registry:__TAG__
+  imagePullPolicy: Always
+  revisionHistoryLimit: 1
+  ports:
+  - 80
+  replicas: 1
+  labels:
+    app: vpkg-registry
+  requests:
+    cpu: 50m
+    memory: 20Mi
+
+service:
+  name: vpkg-registry
+  port: 80
+  targetPort: 80
+  appSelector: vpkg-registry
+
+ingress:
+  hosts:
+    - vpm.best
+  secret: tls-vpkg-registry
+  issuer: letsencrypt-issuer-http
+  name: vpkg-registry
