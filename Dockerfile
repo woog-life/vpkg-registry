@@ -1,4 +1,4 @@
-FROM nginx:1.19-alpine
+FROM nginx:1.21-alpine
 EXPOSE 80
 
 ADD index.html /usr/share/nginx/html/index.html
