@@ -1,6 +1,11 @@
 {
     "packages": [
         {
+            "name": "color"
+            "url": "https://github.com/tristanisham/color",
+            "method": "git"
+        },
+        {
             "name": "owmw",
             "url": "https://github.com/bowero/owmw",
             "method": "git"
