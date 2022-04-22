@@ -24,7 +24,7 @@ ingress:
   hosts:
     - vpm.best
   secret: tls-vpkg-registry
-  issuer: letsencrypt-issuer-http
+  issuer: letsencrypt-issuer
   name: vpkg-registry
 
 configmap:
