@@ -26,3 +26,18 @@ ingress:
   secret: tls-vpkg-registry
   issuer: letsencrypt-issuer-http
   name: vpkg-registry
+
+configmap:
+  name: vpm-config
+  postgres:
+    hostname: "vpm-postgres"
+    user: "__POSTGRES_USER__"
+    db: "__POSTGRES_DB__"
+
+secret:
+  name: vpm-secrets
+  github:
+    client_id: "__VPM_GITHUB_CLIENT_ID__"
+    client_secret: "__VPM_GITHUB_SECRET__"
+  postgres:
+    password: "__POSTGRES_PASSWORD__"
